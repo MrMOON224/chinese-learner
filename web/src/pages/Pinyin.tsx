@@ -29,7 +29,7 @@ const INITIALS = [
 ];
 
 const FINALS: Array<{ f: string; ex: string }> = [
-  { f: 'a', ex: 'bā' }, { f: 'o', ex: 'bō' }, { f: 'e', ex: 'gē' }, { f: 'i', ex: 'bī' }, { f: 'u', ex: 'bū' }, { f: 'ü', ex: 'lǜ' },
+  { f: 'a', ex: 'bā' }, { f: 'o', ex: 'bō' }, { f: 'e', ex: 'gē' }, { f: 'i', ex: 'dī' }, { f: 'u', ex: 'kū' }, { f: 'ü', ex: 'lǜ' },
   { f: 'ai', ex: 'kāi' }, { f: 'ei', ex: 'bēi' }, { f: 'ao', ex: 'hǎo' }, { f: 'ou', ex: 'kǒu' },
   { f: 'an', ex: 'bān' }, { f: 'en', ex: 'hěn' }, { f: 'ang', ex: 'bāng' }, { f: 'eng', ex: 'bēng' }, { f: 'er', ex: 'èr' },
   { f: 'ia', ex: 'jiā' }, { f: 'ie', ex: 'xiè' }, { f: 'iao', ex: 'biǎo' }, { f: 'iu', ex: 'liù' }, { f: 'ian', ex: 'qiān' }, { f: 'in', ex: 'jīn' }, { f: 'ing', ex: 'qīng' },
@@ -48,7 +48,7 @@ const TONE_POOL = [
   { pinyin: 'mā', hanzi: '妈' }, { pinyin: 'má', hanzi: '麻' }, { pinyin: 'mǎ', hanzi: '马' }, { pinyin: 'mà', hanzi: '骂' },
   { pinyin: 'bā', hanzi: '八' }, { pinyin: 'bá', hanzi: '拔' }, { pinyin: 'bǎ', hanzi: '把' }, { pinyin: 'bà', hanzi: '爸' },
   { pinyin: 'dā', hanzi: '搭' }, { pinyin: 'dá', hanzi: '答' }, { pinyin: 'dǎ', hanzi: '打' }, { pinyin: 'dà', hanzi: '大' },
-  { pinyin: 'tā', hanzi: '他' }, { pinyin: 'tá', hanzi: '塔' }, { pinyin: 'tǎ', hanzi: '塔' }, { pinyin: 'tà', hanzi: '踏' },
+  { pinyin: 'tī', hanzi: '踢' }, { pinyin: 'tí', hanzi: '提' }, { pinyin: 'tǐ', hanzi: '体' }, { pinyin: 'tì', hanzi: '替' },
   { pinyin: 'mī', hanzi: '咪' }, { pinyin: 'mí', hanzi: '迷' }, { pinyin: 'mǐ', hanzi: '米' }, { pinyin: 'mì', hanzi: '密' },
   { pinyin: 'hē', hanzi: '喝' }, { pinyin: 'hé', hanzi: '和' }, { pinyin: 'hè', hanzi: '贺' },
   { pinyin: 'yī', hanzi: '一' }, { pinyin: 'yí', hanzi: '移' }, { pinyin: 'yǐ', hanzi: '椅' }, { pinyin: 'yì', hanzi: '亿' },
@@ -181,7 +181,7 @@ export default function Pinyin() {
             <p className="muted" style={{ margin: '12px 0 6px' }}>The classic example — hear each one:</p>
             <div className="btnrow">
               {MA_ROW.map((m) => (
-                <button key={m.pinyin} className="btn ghost sm" onClick={() => speak(m.pinyin)}>
+                <button key={m.pinyin} className="btn ghost sm" onClick={() => speak(m.hanzi)}>
                   {m.pinyin} <span className="muted">({m.hanzi} {m.meaning})</span>
                 </button>
               ))}
@@ -230,7 +230,7 @@ export default function Pinyin() {
             <>
               <p className="muted">Which tone do you hear? 🔊</p>
               <p className="zh" style={{ fontSize: 40, margin: '8px 0 2px' }}>{toneCur.hanzi}</p>
-              <button className="speakbtn" style={{ marginBottom: 14 }} onClick={() => speak(toneCur.pinyin)}>🔊 Play again</button>
+              <button className="speakbtn" style={{ marginBottom: 14 }} onClick={() => speak(toneCur.hanzi)}>🔊 Play again</button>
               <div className="btnrow" style={{ justifyContent: 'center' }}>
                 {[1, 2, 3, 4, 0].map((n) => (
                   <button
