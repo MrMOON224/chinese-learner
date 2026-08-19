@@ -1,19 +1,25 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
+import Today from './pages/Today';
+import Pinyin from './pages/Pinyin';
 import Lesson from './pages/Lesson';
 import Review from './pages/Review';
 import Quiz from './pages/Quiz';
 import Conversation from './pages/Conversation';
 import Speaking from './pages/Speaking';
+import Mistakes from './pages/Mistakes';
+import Import from './pages/Import';
 import Progress from './pages/Progress';
 
 const nav = [
   { to: '/', label: 'Home', end: true },
+  { to: '/pinyin', label: 'Pinyin' },
   { to: '/lesson', label: 'Lesson' },
   { to: '/review', label: 'Review' },
   { to: '/quiz', label: 'Quiz' },
   { to: '/conversation', label: 'Chat' },
   { to: '/speaking', label: 'Speak' },
+  { to: '/mistakes', label: 'Fix' },
+  { to: '/import', label: 'Import' },
   { to: '/progress', label: 'Progress' },
 ];
 
@@ -37,12 +43,15 @@ export default function App() {
       </header>
       <main className="content">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Today />} />
+          <Route path="/pinyin" element={<Pinyin />} />
           <Route path="/lesson" element={<Lesson />} />
           <Route path="/review" element={<Review />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/conversation" element={<Conversation />} />
           <Route path="/speaking" element={<Speaking />} />
+          <Route path="/mistakes" element={<Mistakes />} />
+          <Route path="/import" element={<Import />} />
           <Route path="/progress" element={<Progress />} />
         </Routes>
       </main>

@@ -98,7 +98,9 @@ const ACTION_PROMPTS = {
     text: `The learner attempted to speak: "${payload.transcript || ''}"\nExpected sentence: "${payload.sentence || ''}" (${payload.pinyin || ''})\nEvaluate pronunciation and tone accuracy.`,
   }),
   import_vocab: (payload) => ({
-    text: `The learner just finished this lesson:\n${payload.lesson_text || ''}\nExtract the new vocabulary taught in it.`,
+    text: payload.words
+      ? 'Parse the learner\'s Chinese word list into vocabulary entries: ' + payload.words + '. For each entry provide word, pinyin with tone marks, and meaning. Add a short example sentence or empty strings. Skip empty lines.'
+      : 'The learner just finished this lesson: ' + (payload.lesson_text || '') + '. Extract the new vocabulary taught in it.',
   }),
   practice_sentence: (payload) => ({
     text: `Give the learner a short sentence to practice speaking aloud. Consider these recurring mistakes: ${payload.mistakes || 'none yet'}.`,

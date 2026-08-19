@@ -19,6 +19,7 @@ export const TABLES = {
   lessons: 'lessons',
   quizzes: 'quiz_attempts',
   convos: 'conversation_sessions',
+  sessions: 'daily_sessions',
 };
 
 export { ID };

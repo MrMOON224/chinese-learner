@@ -11,6 +11,7 @@ export default function Review() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [stats, setStats] = useState({ again: 0, good: 0 });
+  const [hidePinyin, setHidePinyin] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -101,18 +102,23 @@ export default function Review() {
   return (
     <div>
       <h1>Review <span className="muted">({idx + 1}/{queue.length})</span></h1>
+      <label className="toggle">
+        <input type="checkbox" checked={hidePinyin} onChange={(e) => setHidePinyin(e.target.checked)} />
+        <span>Characters first — hide pinyin until the answer</span>
+      </label>
       <div className="card" style={{ textAlign: 'center', padding: '26px 16px' }}>
         {!flipped ? (
           <>
             <p className="muted">What does this mean?</p>
             <p className="zh" style={{ fontSize: 44, margin: '10px 0' }}>{v.word}</p>
-            <p style={{ fontSize: 18 }}>{v.pinyin}</p>
+            {!hidePinyin && <p style={{ fontSize: 18 }}>{v.pinyin}</p>}
             <button className="btn ghost block" onClick={() => setFlipped(true)}>Show answer</button>
           </>
         ) : (
           <>
             <p className="muted">Answer</p>
             <p style={{ fontSize: 22, fontWeight: 700 }}>{v.meaning}</p>
+            <p style={{ fontSize: 18 }}>{v.pinyin}</p>
             <p className="zh" style={{ fontSize: 17 }}>{v.example}</p>
             {v.example_pinyin && <p className="muted">{v.example_pinyin}</p>}
             {v.example_en && <p className="muted">{v.example_en}</p>}
