@@ -1,0 +1,36 @@
+Build a Mandarin Chinese learning app.
+
+Core concept:
+An adaptive AI teacher that takes a learner from absolute beginner
+to conversational Mandarin.
+
+Architecture:
+
+1. User profile
+2. Learning progress
+3. Vocabulary memory
+4. Spaced repetition
+5. Lessons
+6. Quizzes
+7. Conversation mode
+8. Pronunciation/speaking mode
+9. Progress dashboard
+
+The AI teacher should use MASTER_CONTEXT.txt as its teaching rules.
+
+The application should store learner-specific knowledge separately
+from the master teaching rules.
+
+Do not hardcode individual learner progress into the master prompt.
+
+Prioritize:
+- simple UX
+- fast learning
+- short lessons
+- active recall
+- spaced repetition
+- adaptive difficulty
+- real-world conversation
+
+The system must be modular so the teaching rules can be updated
+without changing the application code.

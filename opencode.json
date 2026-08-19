@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "appwrite": {
+      "type": "remote",
+      "url": "https://mcp.appwrite.io/",
+      "enabled": true
+    }
+  }
+}
